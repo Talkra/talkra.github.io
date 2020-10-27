@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="css/font.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="icon" href="resources/fav.png" sizes="16x16" type="image/png">
+
+    <title>Create a new Chatroom - Talkra</title>
+
+</head>
+
+<body onload="checkCookie();">
+
+    <main class="admin-outer" id="main-create">
+        <div class="admin-panel">
+
+            <h1>Room</h1>
+            <p style="color: grey;">Create a new chatroom. So give it a name and password🤫!</p>
+
+            <div class="button-section">
+
+            </div>
+
+            <div>
+                <input id="room-name" type="text" placeholder="Your name" class="link-input"> 
+                <input id="room-code" style="text-transform: lowercase;" type="text" placeholder="Room code" class="link-input"> 
+                <input id="room-password" style="text-transform: lowercase;" type="password" placeholder="Password" class="link-input"> 
+            </div>
+
+            <button 
+                title="Create your room!!" 
+                onclick="_validateInfo();" 
+                style="cursor: pointer;" 
+                class="save-btn" 
+            >
+            Create room <i class="material-icons arrow-right-mat" >arrow_forward</i>
+            </button>
+        </div>
+
+        <div class="not-available-di" id="notavil-msg">
+            <p > <i class="material-icons" style="vertical-align: middle;">warning</i> That code is not available!</p>
+        </div>
+
+        <a target="_blank" href="https://tiny.cc/harrytom" class="credit-link">Made by Harry Tom</a>
+    </main>
+
+    <div class="over-lay-progress" id="prog-lay">
+        <div class="img-prog-loader"></div>
+    </div>
+
+        <!--firebase library cdn-->
+        <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-database.js"></script>
+       
+        <!--Self-hosted scripts-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="js/config.js" type="text/JavaScript"></script>
+        <script src="js/create-room.js" type="text/JavaScript"></script>
+        <script src="js/cookie.js" type="text/JavaScript"></script>
+        <script src="js/script.js" type="text/JavaScript"></script>
+</body>
+</html>

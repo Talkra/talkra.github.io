@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="css/font.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>Quick link by har.to</title>
+    <link rel="icon" href="resources/fav.png" sizes="16x16" type="image/png">
+
+</head>
+
+<body onresize="checkUsr()" class="chat-body" id="chat-b">
+
+<script>
+    document.title = window.location.hash + " - Talkra Chatroom"
+</script>
+
+    <main class="chat-main" id="chat-color">
+        <div class="chat-layout-outer" id="chat-out-lay">
+
+            <div class="title-area" class="titl-area">
+                <h3 id="chat-name"></h3>
+
+                <div class="search-bar" id="search-div">
+                    <input type="text" placeholder="Search messges..." oninput="SearchFor()" id="myFilter">
+                    <button class="round-btn material-icons search-close" onclick="closeSearchBar()">close</button>
+                </div>
+                <div class="drop-out">
+                    <input style="display: none;" type="text" name="" id="copy-txt">
+                    <button href="" onclick="popListActions();" id="dropit-btn" class="material-icons round-btn">more_horiz</button>
+                    <div class="drop-down" id="chat-drop">
+                        <button onclick="copyUrl()">Share room</button>
+                        <button onclick="openSearchBar()">Search</button>
+                        <button onclick="document.getElementById('cuz-win').style='opacity:1;visibility:visible;'">Customize</button>
+                        <div id="clearchat"></div>
+                        <button onclick="window.open('new.html')">New room</button>
+                        <button onclick="window.location.replace('index.html')">Exit Room</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-area" id="chat-js">
+                <!--Chat goes here-->
+            </div>
+            <div class="text-bar" id="txt-area">
+                <div class="chat-box" id="cbox">
+                    <input oninput="buttonVisibility();" placeholder="Write something.." type="text" id="message-in">                  
+                </div>
+                <button id="send-btn" oninput="buttonVisibility();" class="material-icons send-btn" onclick="getHistory()">send</button>
+                
+            </div>
+        </div>
+    </main>
+
+    <div class="over-lay-progress" id="auth-lay" style="opacity: 1;visibility: visible;">
+        <div class="auth-panel">
+            <h1 id="room-id-prew">Join</h1>
+            <p style="color: grey; margin-bottom: 10px;">Hey, we know its you! Anyway, please enter the password to join this chatroom!</p>
+
+            <input id="name-to-join" type="text" placeholder="Mr.K" class="link-input"> 
+            <input id="room-code-join" style="text-transform: lowercase;" type="text" placeholder="Code" class="link-input"> 
+            <input id="room-password-join" style="text-transform: lowercase;" type="password" placeholder="Password" class="link-input"> 
+
+            <button 
+                title="Join your room!!" 
+                onclick="validateJoinable();" 
+                style="cursor: pointer;" 
+                class="save-btn" 
+            >
+            Join chat <i class="material-icons arrow-right-mat" >arrow_forward</i>
+            </button>
+
+            <script>
+                autoFilledState();
+
+                document.getElementById('room-code-join').value = window.location.hash.substr(1);
+
+                function autoFilledState(){
+                    if(window.location.hash.substr(1) !== ''){
+                        document.getElementById('room-code-join').style.display = 'none';
+                        document.getElementById('room-id-prew').textContent = window.location.hash.substr(1);
+                    }else{
+                        document.getElementById('room-code-join').style.display = 'block'; 
+                    }
+                }
+            </script>
+        </div>
+    </div>
+
+    <div class="not-available-di" id="room-not-avil-msg">
+        <p > <i class="material-icons" style="vertical-align: middle;">warning</i> Room code or password incorrect </p>
+    </div>
+
+    <div class="customize-overlay" id="cuz-win">
+        <div class="customize-window">
+
+            <button style="float: left;vertical-align: bottom;" onclick="setStyleBack();" class="round-btn material-icons close-cuz">
+                close
+            </button>
+
+            <h1>Customize</h1>
+            <p style="color: lightgray;">Customize your chatroom here!</p>
+            <input type="color" id="color-pick" onchange="saveColor();" style="display: none;">
+
+            <div class="color-opt">
+                <div class="color-box" id="color-picker">
+                    <i class="material-icons">color_lens</i>
+                    <h3 class="color-txt">Choose color</h3>
+                </div>
+                <div class="color-box" id="image-chooser">
+                    <i class="material-icons">image</i>
+                    <h3 class="color-txt">Add Image</h3>
+                </div>
+                <div class="color-box" id="theme-change" onclick="alert('Dark theme will be soon available!')">
+                    <i class="material-icons">brightness_4</i>
+                    <h3 class="color-txt">Toggle theme</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--firebase library cdn-->
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-database.js"></script>
+   
+    <!--Self-hosted scripts-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/config.js" type="text/JavaScript"></script>
+    <script src="js/script.js" type="text/JavaScript"></script>
+    <script src="js/cookie.js" type="text/JavaScript"></script>
+    <script src="js/auth.js" type="text/JavaScript"></script>
+    <script src="js/app.js" type="text/JavaScript"></script>
+
+    
+</body>
+
+</html>

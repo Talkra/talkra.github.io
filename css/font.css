@@ -1,0 +1,20 @@
+/*Font::Helvetica*/
+
+@font-face {
+    font-family: HelveticaL;
+    src: url(../fonts/helvetica/Light.ttf);
+}
+
+@font-face {
+    font-family: HelveticaM;
+    src: url(../fonts/helvetica/Medium.ttf);
+}
+
+@font-face {
+    font-family: HelveticaR;
+    src: url(../fonts/helvetica/Regular.ttf);
+}
+@font-face {
+    font-family: HelveticaB;
+    src: url(../fonts/helvetica/Bold.ttf);
+}

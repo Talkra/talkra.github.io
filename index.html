@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="css/font.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <title>Talkra - Chatrooms, that made easy</title>
+    <link rel="icon" href="resources/fav.png" sizes="16x16" type="image/png">
+
+</head>
+
+<body class="body-index">
+    <main>
+        <header>
+            <div class="headr">
+                <h1 class="logo-grad">Talkra</h1>
+                <div>
+                    <nav>
+                        <a href="chat.html">Join</a>
+                        <a href="new.html" class="button-type-link">Create <i class="material-icons arrow-right-mat" >arrow_forward</i> </a> 
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div class="main-sec">
+            <div class="left-sec-hero">
+                <div class="hero-tx-div">
+                    <h1 class="hero-text">Chatrooms That <br>Made Easy</h1>
+                    <p>Create Chatrooms easily, Without even <br>creating an account.</p>
+                    <div class="shakeInput">
+                        <input type="text" placeholder="Enter room name.." class="enter-room-h" id="hero-join" name="lol">
+                        <script>
+                            var input = document.getElementById("hero-join");
+
+                            input.addEventListener("keyup", function(event) {
+                            if (event.keyCode === 13) {
+                                event.preventDefault();
+
+                                if(input.value !== ''){
+                                    window.open('chat.html#' + input.value);
+                                }
+                                else{
+                                    $( "#hero-join" ).effect( "shake" );
+                                }
+
+                            }
+                            });  
+                        </script>
+                    </div>
+
+                </div>
+                <div class="hero-images">
+                    <img src="resources/chat-res-1.png" class="chat-img-1" alt="Chat's made eazy!">
+                    <img src="resources/chat-res-2.png" class="chat-img-2" alt="Chat's made eazy!">
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!--firebase library cdn-->
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-database.js"></script>
+   
+    <!--Self-hosted scripts-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/script.js" type="text/JavaScript"></script>
+
+</body>
+
+</html>
