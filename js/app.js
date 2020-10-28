@@ -40,11 +40,10 @@ function SetM(){
    // Updated = ChatHistory + '<div class="bubl ' + ip.replace(/./g, '-') +  ' ><p class="message-txt">' + msg + '</p></div>';
    Updated = ChatHistory +  '<div class="bubl ' + ip + ' "><p class="name-text">' + u_name + '</p><p class="message-txt">' + msg + '</p></div>';
    AndroidChat = '\"' + Updated.replace(/"/g, "<#-DQ-#>").replace(/'/g, "<#-SQ-#>")  + '\"';
-   AndroidChatHtml = '\"' + AndroidChat + '\"';
 
     firebase.database().ref('chatroom/' + chatroomId + '/chat').update({
         chats: Updated,
-        androidChat: AndroidChatHtml,
+        androidChat: AndroidChat,
     });
 
     document.getElementById('message-in').value = '';
