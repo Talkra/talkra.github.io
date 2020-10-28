@@ -42,7 +42,7 @@
                                 event.preventDefault();
 
                                 if(input.value !== ''){
-                                    window.open('chat.html#' + input.value);
+                                    window.open('chat.html#' + input.value.toLowerCase());
                                 }
                                 else{
                                     $( "#hero-join" ).effect( "shake" );
