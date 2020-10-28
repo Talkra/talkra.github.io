@@ -30,7 +30,11 @@
                         window.scrollTo(0,-1);
                     }
                     catch(error){}
-
+                        
+                    window.onload=function () {
+                        var objDiv = document.getElementById("chat-js");
+                        objDiv.scrollTop = objDiv.scrollHeight;
+                    }
                     </script> 
             
             <div class="title-area" class="titl-area">
