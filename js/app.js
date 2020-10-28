@@ -54,7 +54,7 @@ function SetM(){
 function messageAsync(){
 
     firebase.database().ref('chatroom/' + chatroomId + '/chat').on('value', function (snapshot) {
-chatjs.innerHTML = snapshot.val().chats.split(ip).join('sender').split('<#-DQ-#>').join('"').split('<#-SQ-#>').join("'").slice(1,-1).split('\\\\\\').join('"');
+chatjs.innerHTML = snapshot.val().chats.split(ip).join('sender').split('<#-DQ-#>').join('"').split('<#-SQ-#>').join("'").slice(1,-1);
         //addClearChatOpt(snapshot.val().ip);
         
      var objDiv = document.getElementById("chat-js");
