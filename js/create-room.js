@@ -15,7 +15,7 @@ $.getJSON("https://api.ipify.org/?format=json", function(e) {
 });
 
 function _validateInfo(){
-    secMsg = '<p class="secure-msg">This chatroom was created by ' + nameInput.value + ' on ' + mm + ' ' + dd + ' ' + yyyy + ' <i style="font-size: 10px;" class="material-icons">lock</i></p>';
+    secMsg = '\"<p class="secure-msg">This chatroom was created by ' + nameInput.value + ' on ' + mm + ' ' + dd + ' ' + yyyy + ' <i style="font-size: 10px;" class="material-icons">lock</i></p>\"';
     if(nameInput.value !== '' && codeInput.value !== '' && passInput.value !== ''){
         firebase.database().ref('chatroom/' + codeInput.value + passInput.value ).once('value', function(snapshot){
 
