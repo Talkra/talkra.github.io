@@ -47,6 +47,7 @@ function createRoom(roomId, Admin){
     firebase.database().ref('chatroom/' + roomId + '/chat' ).set({
        admin: Admin,
        chats: secMsg ,
+       androidChat: '<!---->',
        ip: AdminIp
     });
 
