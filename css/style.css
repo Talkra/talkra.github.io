@@ -126,10 +126,11 @@ select {
 
 .chat-main{
     margin: 0 auto;
-    height: 100vh;
+    height: -webkit-fill-available;
     width: 100%;
     /*background-image: url('https://images.unsplash.com/photo-1579762593175-20226054cad0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=807&q=80');
     */background-size: cover;
+    min-height: -webkit-fill-available;
     
 }
 
