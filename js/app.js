@@ -26,7 +26,7 @@ function getHistory(){
     if(document.getElementById('message-in').value !== ''){
 
         firebase.database().ref('chatroom/' + chatroomId + '/chat').once('value', function (snapshot) {
-            ChatHistory = snapshot.val().chats;
+            ChatHistory = snapshot.val().chats.slice(1,-1);
             SetM();
                  var objDiv = document.getElementById("chat-js");
      objDiv.scrollTop = objDiv.scrollHeight;
@@ -44,8 +44,8 @@ function SetM(){
    AndroidChat = '\"' + Updated.replace(/"/g, "<#-DQ-#>").replace(/'/g, "<#-SQ-#>")  + '\"';
 
     firebase.database().ref('chatroom/' + chatroomId + '/chat').update({
-        chats: Updated,
-        androidChat: AndroidChat,
+        chats: AndroidChat,
+        ChatHtml: Updated,
     });
 
     document.getElementById('message-in').value = '';
@@ -54,7 +54,7 @@ function SetM(){
 function messageAsync(){
 
     firebase.database().ref('chatroom/' + chatroomId + '/chat').on('value', function (snapshot) {
-        chatjs.innerHTML = snapshot.val().chats.split(ip).join('sender').split('<#-DQ-#>').join('"').split('<#-SQ-#>').join("'").slice(1,-1);
+chatjs.innerHTML = snapshot.val().chats.split(ip).join('sender').split('<#-DQ-#>').join('"').split('<#-SQ-#>').join("'").slice(1,-1);
         //addClearChatOpt(snapshot.val().ip);
         
      var objDiv = document.getElementById("chat-js");
