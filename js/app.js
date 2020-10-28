@@ -53,6 +53,9 @@ function messageAsync(){
     firebase.database().ref('chatroom/' + chatroomId + '/chat').on('value', function (snapshot) {
         chatjs.innerHTML = snapshot.val().chats.split(ip).join('sender');
         addClearChatOpt(snapshot.val().ip);
+        
+        var objDiv = document.getElementById("chat-js");
+        objDiv.scrollTop = objDiv.scrollHeight;
     });
 }
 
