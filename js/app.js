@@ -54,11 +54,11 @@ function messageAsync(){
     });
 }
 
-function addClearChatOpt(ipAddress){
-    if(ip == ipAddress){
-        document.getElementById('clearchat').innerHTML = '<button id="clear-chat">Clear chat</button>';
-    }else{}
-}
+//function addClearChatOpt(ipAddress){
+    //if(ip == ipAddress){
+      //  document.getElementById('clearchat').innerHTML = '<button id="clear-chat">Clear chat</button>';
+   // }else{}
+//}
 
 $('#message-in').keydown(function(event){ 
     var keyCode = (event.keyCode ? event.keyCode : event.which);   
