@@ -25,7 +25,7 @@ function getHistory(){
 
     if(document.getElementById('message-in').value !== ''){
 
-        firebase.database().ref('chatroom/' + chatroomId + '/chat').once('value', function (snapshot) {
+        firebase.database().ref('chatroom/' + chatroomId.toLowerCase() + '/chat').once('value', function (snapshot) {
             ChatHistory = snapshot.val().chats;
             SetM();
                  var objDiv = document.getElementById("chat-js");
@@ -42,7 +42,7 @@ function SetM(){
    // Updated = ChatHistory + '<div class="bubl ' + ip.replace(/./g, '-') +  ' ><p class="message-txt">' + msg + '</p></div>';
    Updated = ChatHistory + '<!--Next Message-->' +  '<div class="bubl ' + ip + ' "><p class="name-text">' + u_name + '</p><p class="message-txt">' + msg + '</p></div>';
 
-    firebase.database().ref('chatroom/' + chatroomId + '/chat').update({
+    firebase.database().ref('chatroom/' + chatroomId.toLowerCase() + '/chat').update({
         chats: Updated,
     });
 
@@ -51,7 +51,7 @@ function SetM(){
 }
 function messageAsync(){
 
-    firebase.database().ref('chatroom/' + chatroomId + '/chat').on('value', function (snapshot) {
+    firebase.database().ref('chatroom/' + chatroomId.toLowerCase() + '/chat').on('value', function (snapshot) {
 chatjs.innerHTML = snapshot.val().chats.split(ip).join('sender');
         //addClearChatOpt(snapshot.val().ip);
         
@@ -76,7 +76,7 @@ $('#message-in').keydown(function(event){
 
 
 $( "#clear-chat" ).click(function() {
-    clearChat(chatroomId);
+    clearChat(chatroomId.toLowerCase());
     hideDrop()
 });
 
