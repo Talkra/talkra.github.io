@@ -3,6 +3,9 @@ var passJoinInput = document.getElementById('room-password-join');
 var nameJoinInput = document.getElementById('name-to-join');
 var ShareLink;
 
+let params = (new URL(document.location)).searchParams;
+let prePass = params.get('passkey'); 
+
 checkUsr();
 
 function validateJoinable(){
@@ -61,4 +64,13 @@ function CheckIfExist(ChatRoomId){
 
 function hideIncorrectMsg(){
     document.getElementById('room-not-avil-msg').style = 'bottom:-100px'
+}
+
+prepassAdd();
+
+function prepassAdd(){
+    if(prePass !== ''){
+        passJoinInput.value = prePass
+    }
+    else{}
 }
