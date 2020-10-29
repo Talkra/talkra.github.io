@@ -173,7 +173,7 @@ select {
     padding-top: 10px;
     display: flex;
     background-color: transparent;
-    position: absolute;
+    position: fixed;
     bottom: 10px;
     left: 0;
 }
