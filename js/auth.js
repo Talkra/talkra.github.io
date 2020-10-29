@@ -1,6 +1,7 @@
 var codeJoinInput = document.getElementById('room-code-join');
 var passJoinInput = document.getElementById('room-password-join');
 var nameJoinInput = document.getElementById('name-to-join');
+var ShareLink;
 
 checkUsr();
 
@@ -39,7 +40,7 @@ function checkUsr() {
 function CheckIfExist(ChatRoomId){
     firebase.database().ref('chatroom/' + ChatRoomId ).once('value', function(snapshot){
         try{
-            
+            ShareLink = 'https://talkra.github.io/chat#' + codeJoinInput.value;
             console.log(snapshot.val().admin + ' Successfully Joined');
             chatroomId = codeJoinInput.value + passJoinInput.value;
             u_name = nameJoinInput.value;
