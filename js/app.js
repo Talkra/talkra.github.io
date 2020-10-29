@@ -26,7 +26,7 @@ function getHistory(){
     if(document.getElementById('message-in').value !== ''){
 
         firebase.database().ref('chatroom/' + chatroomId + '/chat').once('value', function (snapshot) {
-            ChatHistory = snapshot.val().chats.slice(1,-1);
+            ChatHistory = snapshot.val().chats;
             SetM();
                  var objDiv = document.getElementById("chat-js");
      objDiv.scrollTop = objDiv.scrollHeight;
@@ -41,11 +41,9 @@ function SetM(){
     var msg =  document.getElementById('message-in').value;
    // Updated = ChatHistory + '<div class="bubl ' + ip.replace(/./g, '-') +  ' ><p class="message-txt">' + msg + '</p></div>';
    Updated = ChatHistory + '<!--Next Message-->' +  '<div class="bubl ' + ip + ' "><p class="name-text">' + u_name + '</p><p class="message-txt">' + msg + '</p></div>';
-   AndroidChat = '\"' + Updated.replace(/"/g, "<#-DQ-#>").replace(/'/g, "<#-SQ-#>")  + '\"';
 
     firebase.database().ref('chatroom/' + chatroomId + '/chat').update({
-        chats: AndroidChat,
-        ChatHtml: Updated,
+        chats: Updated,
     });
 
     document.getElementById('message-in').value = '';
@@ -54,7 +52,7 @@ function SetM(){
 function messageAsync(){
 
     firebase.database().ref('chatroom/' + chatroomId + '/chat').on('value', function (snapshot) {
-chatjs.innerHTML = snapshot.val().chats.split(ip).join('sender').split('<#-DQ-#>').join('"').split('<#-SQ-#>').join("'").slice(1,-1).split('\\/').join('/').split('\\\"').join('"');
+chatjs.innerHTML = snapshot.val().chats.split(ip).join('sender');
         //addClearChatOpt(snapshot.val().ip);
         
      var objDiv = document.getElementById("chat-js");
@@ -88,7 +86,7 @@ function clearChat(idToClear){
     var r = confirm("Do you really want to clear all chat history? You can't take it back!");
     if (r == true) {
         firebase.database().ref('chatroom/' + idToClear + '/chat').update({
-            chats: '\"<!--Chats are encrypted-->\"'
+            chats: '<!--Chats are encrypted-->'
         });
     }
 }
