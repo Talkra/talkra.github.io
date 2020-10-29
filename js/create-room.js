@@ -27,7 +27,7 @@ function _validateInfo(){
             catch{
                 console.log('room code available');
                 document.getElementById('prog-lay').style = 'visibility:visible;opacity:1'
-                createRoom(codeInput.value + passInput.value, nameInput.value)
+                createRoom(codeInput.value.toLowerCase() + passInput.value.toLowerCase(), nameInput.value.toLowerCase())
             }
         });
     }
@@ -53,5 +53,5 @@ function createRoom(roomId, Admin){
     setTimeout(openChatLink, 3000);
 }
 function openChatLink(){
-    window.location.replace('chat.html#' + codeInput.value);
+    window.location.replace('chat.html#' + codeInput.value.toLowerCase());
 }
