@@ -53,10 +53,12 @@ function CheckIfExist(ChatRoomId){
             document.getElementById('chat-name').textContent = '#' + codeJoinInput.value.toLowerCase();
             messageAsync();
             document.getElementById('auth-lay').style = 'visibility:hidden;opacity:0'
+            document.getElementById('prog-lay').style = 'visibility:hidden;opacity:0'
             //
             
         }
         catch{
+            document.getElementById('prog-lay').style = 'visibility:hidden;opacity:0'
             console.log('room not exist or passkey is wrong!');
             document.getElementById('room-not-avil-msg').style = 'bottom:25px;left:calc(50% - 142px)';
             setTimeout(hideIncorrectMsg,5000);
