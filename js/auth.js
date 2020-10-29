@@ -3,8 +3,10 @@ var passJoinInput = document.getElementById('room-password-join');
 var nameJoinInput = document.getElementById('name-to-join');
 var ShareLink;
 
-let params = (new URL(document.location)).searchParams;
-let prePass = params.get('passkey'); 
+var params = (new URL(document.location)).searchParams;
+var prePass = params.get('passkey'); 
+var preName = params.get('name'); 
+var Precode = window.location.hash.substring(1);
 
 checkUsr();
 
@@ -69,8 +71,11 @@ function hideIncorrectMsg(){
 prepassAdd();
 
 function prepassAdd(){
-    if(prePass !== ''){
-        passJoinInput.value = prePass
+    if(prePass !== null && Precode !==  null && preName !== null){
+        document.getElementById('prog-lay').style = 'visibility:visible;opacity:1'
+        //alert('Name:' + preName + ' Code:' + Precode + ' Pass:' + prePass);
+        passJoinInput.value = prePass;
+        nameJoinInput.value = preName;
+        validateJoinable();
     }
-    else{}
 }
