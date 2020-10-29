@@ -37,7 +37,7 @@ function checkUsr() {
     } else {}
 }
 
-function CheckIfExist(ChatRoomId.toLowerCase()){
+function CheckIfExist(ChatRoomId){
     firebase.database().ref('chatroom/' + ChatRoomId ).once('value', function(snapshot){
         try{
             ShareLink = 'https://talkra.github.io/chat#' + codeJoinInput.value.toLowerCase();
