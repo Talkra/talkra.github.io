@@ -88,7 +88,7 @@ function clearChat(idToClear){
     var r = confirm("Do you really want to clear all chat history? You can't take it back!");
     if (r == true) {
         firebase.database().ref('chatroom/' + idToClear + '/chat').update({
-            chats: '<!--Chats are encrypted-->'
+            chats: '\"<!--Chats are encrypted-->\"'
         });
     }
 }
