@@ -1,13 +1,13 @@
 //Firebase Confirgations :: SimpleProjects :: 24.10.2020 :: Harry Tom
 
 var firebaseConfig = {
-  apiKey: "AIzaSyCNOKjAJ1OY_ShpRdW2LtcGo5MtK-xcr_U",
-  authDomain: "simple-projects-260.firebaseapp.com",
-  databaseURL: "https://simple-projects-260.firebaseio.com",
-  projectId: "simple-projects-260",
-  storageBucket: "simple-projects-260.appspot.com",
-  messagingSenderId: "784480095182",
-  appId: "1:784480095182:web:91eb4c39f9e14b705eb99f"
+    apiKey: "AIzaSyAat92oneTLmO00Ii9dqBdhO9hWlJL-17k",
+    authDomain: "yeah-ten.firebaseapp.com",
+    databaseURL: "https://yeah-ten-default-rtdb.firebaseio.com",
+    projectId: "yeah-ten",
+    storageBucket: "yeah-ten.appspot.com",
+    messagingSenderId: "1017376804275",
+    appId: "1:1017376804275:web:e5e98bb93b8172f13e8fc6"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
